@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
+import SignUp from './components/SignUp';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Login />
+        {/* <Login /> */}
         <NavBar />
+        <SignUp />
       </div>
     );
   }

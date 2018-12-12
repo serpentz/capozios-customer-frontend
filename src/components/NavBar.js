@@ -53,7 +53,7 @@ const NavBar = () => {
         <div className="navbar-item">
             <div className="buttons">
             <a className="button is-light" href='/'>
-                Orders
+                Profile
             </a>
             <a className="button is-light" href='/'>
                 Log in

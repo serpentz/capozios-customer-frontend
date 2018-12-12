@@ -9,3 +9,7 @@
 
 * BEFORE DEPLOY
     - 
+
+* How to implement login
+    - Actions supposed to be arrow functions
+    - Where images should be stored
