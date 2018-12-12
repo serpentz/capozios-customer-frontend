@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
+import logo from '../imgs/capozios-logo.png';
 
 export default class Login extends Component {
     render () {
         return (
-            <section className="hero is-success is-fullheight">
+            <section className="hero is-fullheight">
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <div className="column is-4 is-offset-4">
+                            <div className="box">
+                                {/* <figure className="avatar"> */}
                             <h3 className="title has-text-grey">Login</h3>
                             <p className="subtitle has-text-grey">Please login to proceed.</p>
-                            <div className="box">
-                                <figure className="avatar">
-                                    <img src="https://placehold.it/128x128" />
-                                </figure>
+                                    {/* <img src={logo} /> */}
+                                {/* </figure> */}
                                     <form>
                                         <div className="field">
                                             <div className="control">
-                                                <input className="input is-large" type="email" placeholder="Your Email" autofocus="" />
+                                                <input className="input is-large" type="email" placeholder="Your Username" autofocus="" />
                                             </div>
                                         </div>
 
@@ -28,7 +29,7 @@ export default class Login extends Component {
                                         <div className="field">
                                             <label className="checkbox">
                                             <input type="checkbox" />
-                                            Remember me </label>
+                                            {` Remember me`} </label>
                                         </div>
                                                     <button className="button is-block is-info is-large is-fullwidth">Login</button>
                                     </form>
