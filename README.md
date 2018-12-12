@@ -1,2 +1,2 @@
-# capozios-customer-frontend
-Customer Frontend Online Ordering
+# Capozio's Online Ordering
+
