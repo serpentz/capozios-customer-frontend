@@ -10,8 +10,8 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 
 // CSS
-import 'bulma';
-import './bulmaJS';
+// import 'bulma';
+// import 'bootstrap';
 import './index.css';
 
 // Redux

@@ -21,61 +21,63 @@ class SignUp extends Component {
 
     render () {
         return  (
-            <section className="hero is-fullheight">
-                <div className="hero-body">
-                    <div className="container has-text-centered">
-                        <div className="column is-4 is-offset-4">
-                            <div className="box">
-                                <h3 className="title has-text-grey">Sign Up</h3>
-                                <p className="subtitle has-text-grey">All fields required</p>
-                                    <form>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div className="card card-signin my-5">
+                                <div className="card-body">
+                                <h3 className="card-title text-center">Sign Up</h3>
+                                    <p className="text-center">All fields required</p>
+                                    <form className="form-signin">
                                         <div className="field">
+                                            <div className="form-label-group">
+                                                <input className="form-control" type="text" placeholder="First Name" autofocus="" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="field">
+                                            <div className="form-label-group">
+                                                <input className="form-control" type="text" placeholder="Last Name" autofocus="" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="field">
+                                            <div className="form-label-group">
+                                                <input className="form-control" type="email" placeholder="Email address" autofocus="" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="field">
+                                            <div className="form-label-group">
+                                                <input className="form-control" type="text" placeholder="Phone Number" />
+                                            </div>
+                                        </div>
+                                        <br />                                        
+                                        <div className="form-label-group">
                                             <div className="control">
-                                                <input className="input is-large" type="text" placeholder="First Name" autofocus="" />
+                                                <input className="form-control" type="text" placeholder="Username" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="form-label-group">
+                                            <div className="control">
+                                                <input className="form-control" type="password" placeholder="Password" />
                                             </div>
                                         </div>
 
-                                        <div className="field">
-                                            <div className="control">
-                                                <input className="input is-large" type="text" placeholder="Last Name" autofocus="" />
-                                            </div>
-                                        </div>
+                                        <hr className="my-4" />
 
-                                        <div className="field">
-                                            <div className="control">
-                                                <input className="input is-large" type="email" placeholder="Email address" autofocus="" />
-                                            </div>
-                                        </div>
-
-                                        <div className="field">
-                                            <div className="control">
-                                                <input className="input is-large" type="text" placeholder="Phone Number" />
-                                            </div>
-                                        </div>
-                                        
-                                        <div className="field">
-                                            <div className="control">
-                                                <input className="input is-large" type="text" placeholder="Username" />
-                                            </div>
-                                        </div>
-
-                                        <div className="field">
-                                            <div className="control">
-                                                <input className="input is-large" type="password" placeholder="Password" />
-                                            </div>
-                                        </div>
-
-                                        <button className="button is-block is-info is-large is-fullwidth">Sign Up!</button>
+                                        <button className="btn btn-lg btn-info btn-block">Sign Up!</button>
                                     </form>
                                             </div>
-                                            <p className="has-text-grey">
+                                            <p className="text-center">
                                                 <a href="/login">Log In</a> &nbsp;·&nbsp;
                                                 <a href="../">Need Help?</a>
                                             </p>
                                         </div>
+                                </div>
                         </div>
                     </div>
-                </section>
         )
     }
 

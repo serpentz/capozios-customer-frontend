@@ -5,67 +5,27 @@ export default class NavBar extends Component {
 
 render () {
     return (
-        <nav className="navbar background-red is-fixed-top" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-            <a className="navbar-item" href="http://www.capozios.com" >
-            <img src={Logo}  height="50" alt = "capozio's-logo"/>
-            </a>
+        <nav className="navbar navbar-expand-lg navbar-light transparent">
+            <img src={Logo} className="logo-height" alt="Capozio's Logo" href="#" />
 
-            <div role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </div>
-            
-        </div>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
 
-        <div id="navMenu" className="navbar-menu">
-            <div className="navbar-start">
-            <a className="navbar-item" href='/'>
-                Home
-            </a>
-
-            <a className="navbar-item" href='/'>
-                Option 1
-            </a>
-
-            <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link" href='/'>
-                dropdown
-                </a>
-
-                <div className="navbar-dropdown">
-                <a className="navbar-item" href='/'>
-                    About
-                </a>
-                <a className="navbar-item" href='/'>
-                    Options
-                </a>
-                <a className="navbar-item" href='/'>
-                    Contact
-                </a>
-                <hr className="navbar-divider" />
-                <a className="navbar-item" href='/'>
-                    Report an issue
-                </a>
-                </div>
-            </div>
-            </div>
-            {/* From Right */}
-            <div className="navbar-end">
-                <div className="navbar-item">
-                    <div className="buttons">
-                    <a className="button is-light" href='/'>
-                        Profile
-                    </a>
-                    <a className="button is-light" href='/login'>
-                        Log in
-                    </a>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav ml-auto">
+                    <a className="nav-item nav-link" href="/">Menu</a>
+                    <div className="nav-item dropdown" href="/">
+                            <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
+                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a className="dropdown-item" href="/">Action</a>
+                                <a className="dropdown-item" href="/">Another action</a>
+                                <a className="dropdown-item" href="/">Logout</a>
+                            </div>
                     </div>
+                    <a className="nav-item nav-link" href="/login">Login</a>
                 </div>
             </div>
-            {/* End From Right */}
-        </div>
         </nav>
         );
     }

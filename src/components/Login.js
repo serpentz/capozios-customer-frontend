@@ -23,55 +23,48 @@ class Login extends Component {
 
     render () {
         return (
-            <section className="hero is-fullheight">
-                <div className="hero-body">
-                    <div className="container has-text-centered">
-                        <div className="column is-4 is-offset-4">
-                            <div className="box">
-                            <h3 className="title has-text-grey">Login</h3>
-                            <p className="subtitle has-text-grey">Please login to proceed.</p>
-                            {/* Form Start */}
-                                    <form>
-                                        
-                                        <div className="field">
-                                            <div className="control">
-                                                <input className="input is-large" 
-                                                name="username" 
-                                                onChange={this.handleOnChange} 
-                                                type="text" placeholder="Your Username" 
-                                                value = {this.state.username} 
-                                                autoFocus="" />
-                                            </div>
-                                        </div>
-
-                                        <div className="field">
-                                            <div className="control">
-                                                <input className="input is-large" 
-                                                name="password"
-                                                onChange={this.handleOnChange}
-                                                type="password"
-                                                placeholder="Your Password" />
-                                            </div>
-                                        </div>
-
-                                        <div className="field">
-                                            <label className="checkbox">
-                                            <input type="checkbox" />
-                                            {` Remember me`} </label>
-                                        </div>
-                                        <button onClick={this.handleOnClick} className="button is-block is-info is-large is-fullwidth">Login</button>
-                                    </form>
-                            {/* Form End */}
-                                            </div>
-                                            <p className="has-text-grey">
-                                                <a href="/signup">Sign Up</a> &nbsp;·&nbsp;
-                                                <a href="/login">Forgot Password</a> &nbsp;·&nbsp;
-                                                <a href="/login">Need Help?</a>
-                                            </p>
-                                        </div>
-        </div>
-    </div>
-</section>
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div className="card card-signin my-5">
+                  <div className="card-body">
+                    <h3 className="card-title text-center">Sign In</h3>
+                    <br />
+                    <form className="form-signin">
+                      <div className="form-label-group">
+                        <input type="text" 
+                        id="inputEmail"
+                        name="username"
+                        onChange={this.handleOnChange}
+                        className="form-control" 
+                        placeholder="Username" 
+                        required autoFocus />
+                      </div>
+                      <br />
+                      <div className="form-label-group">
+                        <input type="password"
+                        id="inputPassword"
+                        name="password"
+                        onChange={this.handleOnChange}
+                        className="form-control"
+                        placeholder="Password"
+                        required />
+                      </div>
+                      <br />
+                      <div className="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                        <label className="custom-control-label" htmlFor="customCheck1">Remember password</label>
+                      </div>
+                      <button className="btn btn-lg btn-info btn-block" onClick={this.handleOnClick} type="submit">Sign In</button>
+                      <hr className="my-4" />
+                      {/* <button className="btn btn-lg btn-primary btn-block" type="submit"><i className="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> */}
+                    </form>
+                      <a className="btn btn-lg btn-info btn-block" href="/signup">Sign Up!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         )
     }
 }
@@ -82,4 +75,10 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+const mapStateToProps = state =>{
+  return {
+    loggedIn: state.loggedIn
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
