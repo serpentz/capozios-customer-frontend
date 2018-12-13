@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
-import logo from '../imgs/capozios-logo.png';
+import { connect } from 'react-redux';
+import { fetchLogin } from '../actions/login';
 
-export default class Login extends Component {
+class Login extends Component {
+
+    state = {
+        username: '',
+        password: ''
+    }
+
+    handleOnChange = event => {
+
+    };
+
+    handleOnClick = event => {
+        this.props.fetchLogin(this.state);
+        this.setState({username: '', password: ''});
+    };
+
     render () {
         return (
             <section className="hero is-fullheight">
@@ -9,15 +25,14 @@ export default class Login extends Component {
                     <div className="container has-text-centered">
                         <div className="column is-4 is-offset-4">
                             <div className="box">
-                                {/* <figure className="avatar"> */}
                             <h3 className="title has-text-grey">Login</h3>
                             <p className="subtitle has-text-grey">Please login to proceed.</p>
-                                    {/* <img src={logo} /> */}
-                                {/* </figure> */}
+                            {/* Form Start */}
                                     <form>
+                                        
                                         <div className="field">
                                             <div className="control">
-                                                <input className="input is-large" type="email" placeholder="Your Username" autofocus="" />
+                                                <input className="input is-large" type="text" placeholder="Your Username" autofocus="" />
                                             </div>
                                         </div>
 
@@ -26,13 +41,15 @@ export default class Login extends Component {
                                                 <input className="input is-large" type="password" placeholder="Your Password" />
                                             </div>
                                         </div>
+
                                         <div className="field">
                                             <label className="checkbox">
                                             <input type="checkbox" />
                                             {` Remember me`} </label>
                                         </div>
-                                                    <button className="button is-block is-info is-large is-fullwidth">Login</button>
+                                        <button onClick={this.handleOnClick} className="button is-block is-info is-large is-fullwidth">Login</button>
                                     </form>
+                            {/* Form End */}
                                             </div>
                                             <p className="has-text-grey">
                                                 <a href="/signup">Sign Up</a> &nbsp;·&nbsp;
@@ -46,3 +63,11 @@ export default class Login extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchLogin: credentials => dispatch(fetchLogin(credentials))
+    }
+};
+
+export default connect(null, mapDispatchToProps)(Login);

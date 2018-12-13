@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 class SignUp extends Component {
     state = {
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         username: "",
         password: "",
         email: "",
@@ -69,7 +69,7 @@ class SignUp extends Component {
                                     </form>
                                             </div>
                                             <p className="has-text-grey">
-                                                <a href="../">Log In</a> &nbsp;·&nbsp;
+                                                <a href="/login">Log In</a> &nbsp;·&nbsp;
                                                 <a href="../">Need Help?</a>
                                             </p>
                                         </div>
