@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import HomePage from './components/HomePage';
-import { fetchItems } from './actions/items'; 
+import { fetchItems } from './actions/items';
+import { checkForToken } from './actions/login'; 
 import { connect } from 'react-redux';
 
 class App extends Component {
 
   componentDidMount() {
     this.props.fetchItems();
+    this.props.checkForToken();
   }
 
   render() {
@@ -20,7 +22,8 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchItems: () => dispatch(fetchItems())
+    fetchItems: () => dispatch(fetchItems()),
+    checkForToken: () => dispatch(checkForToken())
   }
 };
 

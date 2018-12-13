@@ -1,5 +1,9 @@
-export default function rootReducer(state = {loggedIn: false}, action) {
+export default function authReducer(state = {loggedIn: false}, action) {
     switch (action.type) {
+        case "VALIDATING_TOKEN":
+            return state
+        case "NO_TOKEN":
+            return state
         case "LOGGING_IN":
             return state
         case "LOGIN_RESPONSE":

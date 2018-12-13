@@ -1,6 +1,7 @@
 // API URLS
     const loginURL = () => "http://localhost:3000/api/v1/login";
     const itemsURL = () => "http://localhost:3000/items";
+    const profileURL = () => "http://localhost:3000/api/v1/profile";
 
 
 // Headers
@@ -12,6 +13,19 @@
             }
     }
 
+// Function
+    
+    export function checkForToken() {
+        return (dispatch) => {
+                if (localStorage.token) {
+                dispatch({type: "VALIDATING_TOKEN"});
+                fetchProfile(localStorage.token);
+            } else {
+                dispatch({type: "NO_TOKEN"})
+            }
+        }
+    };
+
 
 // Fetch calls
 
@@ -19,18 +33,22 @@
     export function fetchLogin(cred) {
         return (dispatch) => {
             dispatch({type: "LOGGING_IN"});
-            return fetch(loginURL(), headers(cred, "POST"))
+            return fetch(loginURL(), headers({user: cred}, "POST"))
+                .then(res => res.json())
+                .then(response => dispatch({type: "LOGIN_RESPONSE", payload: response}));
+                // .catch needs to be added here
+        }
+    };
+
+    function fetchProfile(token) {
+        return (dispatch) => { 
+                fetch(profileURL(), {
+                method: 'GET',
+                headers: {
+                Authorization: `Bearer ${token}`
+                }
+            })
             .then(res => res.json())
             .then(response => dispatch({type: "LOGIN_RESPONSE", payload: response}));
-            // .catch needs to be added here
-        }
-    }
-
-    export function fetchItems() {
-        return (dispatch) => {
-            dispatch({type: "FETCHING_ITEMS"});
-            return fetch(itemsURL())
-            .then(res => res.json())
-            .then(response => dispatch({type: "ITEMS_RESPONSE", payload: response}));
         }
     }
