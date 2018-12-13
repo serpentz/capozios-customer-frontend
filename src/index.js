@@ -11,6 +11,7 @@ import SignUp from './components/SignUp';
 
 // CSS
 import 'bulma';
+import './bulmaJS';
 import './index.css';
 
 // Redux
