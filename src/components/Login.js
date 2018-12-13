@@ -77,6 +77,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state =>{
   return {
+    // maybe state.auth.loggedIn
     loggedIn: state.loggedIn
   }
 }

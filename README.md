@@ -21,3 +21,5 @@
     - How would I implement a .catch on the actions for fetching?
     - I need to know how to do the actions and reducing methods for fetching.
     - When I export an action, should I `export deafult` or `export`?
+    - Order of Reducers?
+    - Using router in different places?

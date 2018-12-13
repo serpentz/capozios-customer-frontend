@@ -1,29 +1,29 @@
 // React
-import React from 'react';
-import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import * as serviceWorker from './serviceWorker';
 
 // Components
-import App from './App';
-import NavBar from './components/NavBar';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
+    import App from './App';
+    import NavBar from './components/NavBar';
+    import Login from './components/Login';
+    import SignUp from './components/SignUp';
 
 // CSS
-// import 'bulma';
-// import 'bootstrap';
-import './index.css';
+    // import 'bulma';
+    // import 'bootstrap';
+    import './index.css';
 
 // Redux
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+    import { Provider } from 'react-redux';
+    import { createStore, applyMiddleware, compose } from 'redux';
+    import thunk from 'redux-thunk';
 
 // React Router
-import { BrowserRouter as Router, Route } from "react-router-dom";
+    import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Imported Reducer
-import rootReducer from './reducers/index';
+    import rootReducer from './reducers/index';
 
 // ?
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

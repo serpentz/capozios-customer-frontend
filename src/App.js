@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-// import './App.css';
 import HomePage from './components/HomePage';
-// import Login from './components/Login';
-// import NavBar from './components/NavBar';
-// import SignUp from './components/SignUp';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { fetchItems } from './actions/items'; 
+import { connect } from 'react-redux';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchItems();
+  }
+
   render() {
     return (
       <div className="App">
@@ -16,4 +18,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchItems: () => dispatch(fetchItems())
+  }
+};
+
+export default connect(null, mapDispatchToProps)(App);
