@@ -55,7 +55,7 @@ const NavBar = () => {
             <a className="button is-light" href='/'>
                 Profile
             </a>
-            <a className="button is-light" href='/'>
+            <a className="button is-light" href='/login'>
                 Log in
             </a>
             </div>

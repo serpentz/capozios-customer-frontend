@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 
 // Components
 import App from './App';
+import NavBar from './components/NavBar';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 
@@ -31,6 +32,7 @@ ReactDOM.render(
     <Provider store = {store} >
         <Router>
             <React.Fragment>
+                <NavBar />
                 <Route exact path='/' component = {App} />
                 <Route exact path='/login' component = {Login} />
                 <Route exact path='/signup' component = {SignUp} />
