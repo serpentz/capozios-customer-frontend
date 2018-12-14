@@ -7,14 +7,18 @@ export default function authReducer(state = {loggedIn: false}, action) {
         case "LOGGING_IN":
             return state
         case "LOGIN_RESPONSE":
-            // if statement to see if the user has proper login credentials
             if (!action.payload.message){
                 localStorage.setItem("token", action.payload.jwt);
-                
                 return {...state, loggedIn: true, user: action.payload.user, jwt: action.payload.jwt}
             } else {
                 return {...state, loggedIn: false}
             }
+        case "PROFILE_RESPONSE":
+                return {...state, loggedIn: true, user: action.payload};
+        case "TOKEN_RESET":
+            console.warn(action.payload);
+            localStorage.removeItem("token");
+            return state;
         default:
             return state;
     }

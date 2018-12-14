@@ -18,7 +18,7 @@
         return (dispatch) => {
                 if (localStorage.token) {
                 dispatch({type: "VALIDATING_TOKEN"});
-                fetchProfile(localStorage.token);
+                dispatch(fetchProfile(localStorage.token));
             } else {
                 dispatch({type: "NO_TOKEN"})
             }
@@ -48,6 +48,7 @@
                 }
             })
             .then(res => res.json())
-            .then(response => dispatch({type: "LOGIN_RESPONSE", payload: response}));
+            .then(response => dispatch({type: "PROFILE_RESPONSE", payload: response}))
+            .catch(error => dispatch({type: "TOKEN_RESET", payload: error}))
         }
     }

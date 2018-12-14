@@ -7,7 +7,7 @@ export function addItemToOrder (id) {
     return (dispatch) => {
         dispatch({type: "ADDING_ITEM"})
         let order = localStorage.getItem('currentOrder');
-        if (order === null) {order = []}
+        if (!order) {order = []}
         order.push(id);
         localStorage.setItem('currentOrder', order);
         dispatch({type: "ITEM_ADDED", payload: order})
