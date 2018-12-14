@@ -12,7 +12,7 @@ class Menu extends Component {
     };
 
     handleOnClick () {
-
+        
     };
 
 
@@ -24,7 +24,7 @@ class Menu extends Component {
     menuRender () {
         return (
             <React.Fragment>
-                {this.props.categories.map(category => <Card name = {category} />)}
+                {this.props.categories.map((category, index) => <Card key = {index} name = {category} />)}
             </React.Fragment>
         )
     }
@@ -41,7 +41,6 @@ class Menu extends Component {
 const mapStateToProps = state => {
     if (state.items.itemsFetched) { 
         let categoryArray = state.items.items.map(cat => cat.name)
-        console.log(categoryArray)
         return {
             categories: categoryArray,
             itemsFetched: state.items.itemsFetched

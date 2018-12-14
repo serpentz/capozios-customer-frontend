@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Logo from "../imgs/capozio_logo.png";
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class NavBar extends Component {
+class NavBar extends Component {
 
 render () {
     return (
@@ -24,10 +25,19 @@ render () {
                                 <Link className="dropdown-item" to="/">Logout</Link>
                             </div>
                     </div>
-                    <Link className="nav-item nav-link" to="/login">Login</Link>
+                    {this.props.loggedIn ? <Link className="nav-item nav-link" to="/">Checkout</Link> : <Link className="nav-item nav-link" to="/login">Login</Link>}
+                    
                 </div>
             </div>
         </nav>
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.auth.loggedIn
+    }
+}
+
+export default connect(mapStateToProps)(NavBar);

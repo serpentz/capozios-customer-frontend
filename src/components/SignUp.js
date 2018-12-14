@@ -31,19 +31,19 @@ class SignUp extends Component {
                                     <form className="form-signin">
                                         <div className="field">
                                             <div className="form-label-group">
-                                                <input className="form-control" type="text" placeholder="First Name" autofocus="" />
+                                                <input className="form-control" type="text" placeholder="First Name" autoFocus="" />
                                             </div>
                                         </div>
                                         <br />
                                         <div className="field">
                                             <div className="form-label-group">
-                                                <input className="form-control" type="text" placeholder="Last Name" autofocus="" />
+                                                <input className="form-control" type="text" placeholder="Last Name" autoFocus="" />
                                             </div>
                                         </div>
                                         <br />
                                         <div className="field">
                                             <div className="form-label-group">
-                                                <input className="form-control" type="email" placeholder="Email address" autofocus="" />
+                                                <input className="form-control" type="email" placeholder="Email address" autoFocus="" />
                                             </div>
                                         </div>
                                         <br />
@@ -84,7 +84,7 @@ class SignUp extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-
+    return {}
 };
 
 export default connect(null, mapDispatchToProps)(SignUp);

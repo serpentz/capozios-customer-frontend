@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchItems } from '../actions/items';
+import Card from '../components/MenuItemCard';
 
 class Category extends Component {
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {};
     }
 
@@ -14,10 +15,18 @@ class Category extends Component {
         }
     }
 
+    renderItems = () => {
+        return (
+            <div className = "card-columns">
+                {this.props.items[0].items.map(item => <Card item={item} key={item.id} />)}
+            </div>
+        )
+    }
+
     render() {
         return (
             <div>
-                This is the {this.state.category} container
+                {this.props.itemsFetched ? this.renderItems() : null}
             </div>
         )
     }
