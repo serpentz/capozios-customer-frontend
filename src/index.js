@@ -8,6 +8,8 @@
     import NavBar from './components/NavBar';
     import Login from './components/Login';
     import SignUp from './components/SignUp';
+    import Menu from './containers/Menu';
+    import CategoryContainer from './containers/Category';
 
 // CSS
     // import 'bulma';
@@ -35,6 +37,8 @@ ReactDOM.render(
             <React.Fragment>
                 <NavBar />
                 <Route exact path='/' component = {App} />
+                <Route exact path='/menu' component = {Menu} />
+                    <Route exact path='/menu/:name' component = {CategoryContainer} />
                 <Route exact path='/login' component = {Login} />
                 <Route exact path='/signup' component = {SignUp} />
             </React.Fragment>

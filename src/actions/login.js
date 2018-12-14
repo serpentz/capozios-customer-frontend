@@ -1,6 +1,5 @@
 // API URLS
     const loginURL = () => "http://localhost:3000/api/v1/login";
-    const itemsURL = () => "http://localhost:3000/items";
     const profileURL = () => "http://localhost:3000/api/v1/profile";
 
 
@@ -9,7 +8,7 @@
         return {
             method: type, 
             headers: {"Content-Type": "application/json", Accept:"application/json"},
-            body: JSON.stringify({user: data})
+            body: JSON.stringify(data)
             }
     }
 

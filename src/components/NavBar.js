@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Logo from "../imgs/capozio_logo.png";
+import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
 
@@ -14,16 +15,16 @@ render () {
 
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav ml-auto">
-                    <a className="nav-item nav-link" href="/">Menu</a>
+                    <Link className="nav-item nav-link" to="/menu">Menu</Link>
                     <div className="nav-item dropdown" href="/">
                             <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a className="dropdown-item" href="/">Action</a>
-                                <a className="dropdown-item" href="/">Another action</a>
-                                <a className="dropdown-item" href="/">Logout</a>
+                                <Link className="dropdown-item" to="/">Action</Link>
+                                <Link className="dropdown-item" to="/">Another action</Link>
+                                <Link className="dropdown-item" to="/">Logout</Link>
                             </div>
                     </div>
-                    <a className="nav-item nav-link" href="/login">Login</a>
+                    <Link className="nav-item nav-link" to="/login">Login</Link>
                 </div>
             </div>
         </nav>

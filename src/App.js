@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+// import { BrowserRouter as Route } from "react-router-dom";
+
 import HomePage from './components/HomePage';
+
+// Actions
 import { fetchItems } from './actions/items';
 import { checkForToken } from './actions/login'; 
 import { connect } from 'react-redux';

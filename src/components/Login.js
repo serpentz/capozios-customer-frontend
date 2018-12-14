@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchLogin } from '../actions/login';
 
@@ -58,6 +59,7 @@ class Login extends Component {
                       <button className="btn btn-lg btn-info btn-block" onClick={this.handleOnClick} type="submit">Sign In</button>
                       <hr className="my-4" />
                       {/* <button className="btn btn-lg btn-primary btn-block" type="submit"><i className="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> */}
+                      {this.props.loggedIn ? <Redirect to = '/' />: null}
                     </form>
                       <a className="btn btn-lg btn-info btn-block" href="/signup">Sign Up!</a>
                   </div>
@@ -77,8 +79,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state =>{
   return {
-    // maybe state.auth.loggedIn
-    loggedIn: state.loggedIn
+    loggedIn: state.auth.loggedIn
   }
 }
 

@@ -5,14 +5,6 @@
 
 // Headers
 
-    // const headers = (data, type) => {
-    //     return {
-    //         method: type, 
-    //         headers: {"Content-Type": "application/json", Accept:"application/json"},
-    //         body: JSON.stringify(data)
-    //         }
-    // }
-
 
 // Fetch calls
 
