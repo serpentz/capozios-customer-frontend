@@ -1,22 +1,43 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createUser } from '../actions/login';
 
 class SignUp extends Component {
     state = {
-        first_name: "",
-        last_name: "",
+        firstName: "",
+        lastName: "",
         username: "",
         password: "",
         email: "",
         phoneNumber: ""
     }
 
-    handleOnChange = () => {
-
+    handleOnChange = event => {
+        this.setState({[event.target.name]: event.target.value})
     };
 
     handleOnSubmit = event => {
         event.preventDefault();
+    };
+
+
+    // Handles phone number for better user experience
+    handlePhoneNumberChange = event => {
+        let value = event.target.value;
+        value = value.replace(/[^0-9]+/g, '');
+        if (value[0] === "1") {value = value.slice(1)}
+        if (value.length <= 3) {
+                value = `+1 (${value})`
+                this.setState({phoneNumber: value})
+        } else if (value.length > 3 && value.length < 7) {
+            value = `+1 (${value.slice(0,3)}) ${value.slice(3, value.length + 1)}`
+            this.setState({phoneNumber: value})
+        } else {
+            value = `+1 (${value.slice(0,3)}) ${value.slice(3, 6)}-${value.slice(6, value.length + 1)}`
+            if (value.length > 17) {value = value.slice(0,17)}
+            this.setState({phoneNumber: value})
+        }
     };
 
     render () {
@@ -31,37 +52,70 @@ class SignUp extends Component {
                                     <form className="form-signin">
                                         <div className="field">
                                             <div className="form-label-group">
-                                                <input className="form-control" type="text" placeholder="First Name" autoFocus="" />
+                                                <input className="form-control" 
+                                                name="firstName"
+                                                value={this.state.firstName}
+                                                onChange={this.handleOnChange}
+                                                type="text" 
+                                                placeholder="First Name" 
+                                                autoFocus="" />
                                             </div>
                                         </div>
                                         <br />
                                         <div className="field">
                                             <div className="form-label-group">
-                                                <input className="form-control" type="text" placeholder="Last Name" autoFocus="" />
+                                                <input className="form-control" 
+                                                name="lastName"
+                                                value={this.state.lastName}
+                                                onChange={this.handleOnChange}
+                                                type="text" 
+                                                placeholder="Last Name" 
+                                                autoFocus="" />
                                             </div>
                                         </div>
                                         <br />
                                         <div className="field">
                                             <div className="form-label-group">
-                                                <input className="form-control" type="email" placeholder="Email address" autoFocus="" />
+                                                <input className="form-control" 
+                                                name="email"
+                                                onChange={this.handleOnChange}
+                                                value={this.state.email}
+                                                type="email" 
+                                                placeholder="Email address" 
+                                                autoFocus="" />
                                             </div>
                                         </div>
                                         <br />
                                         <div className="field">
                                             <div className="form-label-group">
-                                                <input className="form-control" type="text" placeholder="Phone Number" />
+                                                <input className="form-control" 
+                                                name="phoneNumber"
+                                                onChange={this.handlePhoneNumberChange}
+                                                value={this.state.phoneNumber}
+                                                type="tel" 
+                                                placeholder="Phone Number" />
                                             </div>
                                         </div>
                                         <br />                                        
                                         <div className="form-label-group">
                                             <div className="control">
-                                                <input className="form-control" type="text" placeholder="Username" />
+                                                <input className="form-control" 
+                                                name="username"
+                                                value={this.state.username}
+                                                onChange={this.handleOnChange}
+                                                type="text" 
+                                                placeholder="Username" />
                                             </div>
                                         </div>
                                         <br />
                                         <div className="form-label-group">
                                             <div className="control">
-                                                <input className="form-control" type="password" placeholder="Password" />
+                                                <input className="form-control"
+                                                name="password"
+                                                onChange={this.handleOnChange}
+                                                value={this.state.password}
+                                                type="password" 
+                                                placeholder="Password" />
                                             </div>
                                         </div>
 
@@ -71,8 +125,8 @@ class SignUp extends Component {
                                     </form>
                                             </div>
                                             <p className="text-center">
-                                                <a href="/login">Log In</a> &nbsp;·&nbsp;
-                                                <a href="../">Need Help?</a>
+                                                <Link to="/login">Log In</Link> &nbsp;·&nbsp;
+                                                <Link to="/singup">Need Help?</Link>
                                             </p>
                                         </div>
                                 </div>
@@ -84,7 +138,9 @@ class SignUp extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        createUser: user => dispatch(createUser(user))
+    }
 };
 
 export default connect(null, mapDispatchToProps)(SignUp);
