@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import { BrowserRouter as Route } from "react-router-dom";
-
 import HomePage from './components/HomePage';
 
 // Actions

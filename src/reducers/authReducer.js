@@ -14,7 +14,13 @@ export default function authReducer(state = {loggedIn: false}, action) {
                 return {...state, loggedIn: false}
             }
         case "PROFILE_RESPONSE":
+            if(!action.payload.error) {
                 return {...state, loggedIn: true, user: action.payload};
+            } else {
+                console.warn(action.payload);
+                localStorage.removeItem("token");
+                return state;
+            }
         case "TOKEN_RESET":
             console.warn(action.payload);
             localStorage.removeItem("token");

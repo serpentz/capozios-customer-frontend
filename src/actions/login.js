@@ -41,12 +41,7 @@
 
     function fetchProfile(token) {
         return (dispatch) => { 
-                fetch(profileURL(), {
-                method: 'GET',
-                headers: {
-                Authorization: `Bearer ${token}`
-                }
-            })
+            fetch(profileURL(), {headers: {Authorization: `Bearer ${token}`}})
             .then(res => res.json())
             .then(response => dispatch({type: "PROFILE_RESPONSE", payload: response}))
             .catch(error => dispatch({type: "TOKEN_RESET", payload: error}))
