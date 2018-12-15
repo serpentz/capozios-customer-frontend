@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import Logo from "../imgs/capozio_logo.png";
+import { logOut } from "../actions/login";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class NavBar extends Component {
+
+
 
 render () {
     return (
@@ -22,7 +25,7 @@ render () {
                             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <Link className="dropdown-item" to="/">Action</Link>
                                 <Link className="dropdown-item" to="/">Another action</Link>
-                                <Link className="dropdown-item" to="/">Logout</Link>
+                                <Link className="dropdown-item" to="/" onClick ={() => this.props.logOut()}>Logout</Link>
                             </div>
                     </div>
                     {this.props.loggedIn ? <Link className="nav-item nav-link" to="/">Checkout</Link> : <Link className="nav-item nav-link" to="/login">Login</Link>}
@@ -38,6 +41,12 @@ const mapStateToProps = state => {
     return {
         loggedIn: state.auth.loggedIn
     }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        logOut: () => dispatch(logOut())
+    }
 }
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

@@ -25,6 +25,17 @@
         }
     };
 
+    export function logOut() {
+        return (dispatch) => {
+            if (localStorage.token) {
+                localStorage.removeItem("token");
+                dispatch({type: "LOGG_OUT"});
+            } else {
+                dispatch({type: "NO_TOKEN"})
+            }
+        }
+    }
+
 
 // Fetch calls
 

@@ -6,6 +6,8 @@ export default function authReducer(state = {loggedIn: false}, action) {
             return state
         case "LOGGING_IN":
             return state
+        case "LOGG_OUT":
+            return {...state, loggedIn: false, jwt: ''}
         case "LOGIN_RESPONSE":
             if (!action.payload.message){
                 localStorage.setItem("token", action.payload.jwt);
